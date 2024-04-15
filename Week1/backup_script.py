@@ -5,6 +5,10 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 import os
 
+import logging
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
 # Define scope
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
@@ -41,6 +45,6 @@ def upload_file_to_drive(file_path, drive_folder_id):
 
 if __name__ == "__main__":
     # Example usage
-    file_path = 'C:\\Users\\l1972\\OneDrive\\Desktop\\cc_project\\test_file.txt'  # Change this to the path of your file
+    file_path = 'C:\\Users\\l1972\\OneDrive\\Desktop\\cc_project\\Week1\\test_file.txt'
     drive_folder_id = '1eGAf7GuXJbSLdj4mvhXB7a5XBsrB5nw3'
     upload_file_to_drive(file_path, drive_folder_id)
