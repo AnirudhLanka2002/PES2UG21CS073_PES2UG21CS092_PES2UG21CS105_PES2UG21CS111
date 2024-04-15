@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cc-backup-image-service
+spec:
+  selector:
+    app: cc-backup-image
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
