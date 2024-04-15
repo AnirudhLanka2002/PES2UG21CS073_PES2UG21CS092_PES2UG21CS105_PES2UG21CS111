@@ -1,10 +1,15 @@
-FROM python:3.8-slim
+# Use a base image
+FROM python:3.9
 
+# Set the working directory in the container
 WORKDIR /app
 
-COPY requirements.txt .
+# Copy the Python script and dependencies
+COPY backup_script.py /app/
+COPY requirements.txt /app/
+
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY backup_script.py .
-
-CMD ["python", "./backup_script.py"]
+# Run the Python script when the container starts
+CMD ["python", "backup_script.py"]
