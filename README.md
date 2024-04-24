@@ -44,15 +44,22 @@ This project involves creating a backup service that periodically backs up a fol
 - Google Drive API credentials
 
 ## Folder Structure
-"""
-├── Dockerfile
-├── backup_script.py
-├── kubernetes
-│    ├── cronjob.yaml
-│    └── pvc.yaml
-├── README.md
-└── requirements.txt
-"""
+├── Dockerfile <br>
+├── backup_script.py <br>
+├── kubernetes <br>
+│    ├── cronjob.yaml <br>
+│    └── pvc.yaml <br>
+├── README.md <br>
+└── requirements.txt <br>
+
+
+- **Dockerfile:** Contains instructions for building the Docker image.
+- **backup_script.py:** Python script for interacting with the Google Drive API and performing backups.
+- **kubernetes/cronjob.yaml:** Defines Kubernetes CronJob resources.
+- **kubernetes/pvc.yaml:** Defines Kubernetes Persistent Volume Claim resources.
+- **README.md:** Project documentation.
+- **requirements.txt:** List of Python dependencies.
+
 
 ## Configuration
 - **Dockerfile:** Contains instructions to build the Docker image.
