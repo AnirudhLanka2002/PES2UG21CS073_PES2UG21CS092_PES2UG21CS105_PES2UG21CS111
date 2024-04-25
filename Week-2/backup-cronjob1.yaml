@@ -3,13 +3,26 @@ kind: CronJob
 metadata:
   name: my-backup-cronjob
 spec:
-  schedule: "*/5 * * * *"  # Run every hour
+  schedule: "*/2 * * * *"  # Run every 2 minutes
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: my-backup-container
-            image: my-google-drive-backup:latest
+            image: my-backup-service:latest
+            command: ["python", "C:\\Users\\l1972\\OneDrive\\Desktop\\cc_project1\\backup_script.py"]
+            volumeMounts:
+            - name: credentials-volume
+              mountPath: /credentials
+              readOnly: true
+            - name: data-volume
+              mountPath: /data
           restartPolicy: OnFailure
-
+          volumes:
+          - name: credentials-volume
+            secret:
+              secretName: google-drive-secret  # Replace with the name of your Kubernetes secret containing credentials.json
+          - name: data-volume
+            persistentVolumeClaim:
+              claimName: ybackup-data-pvc  # Replace with the name of your PersistentVolumeClaim (PVC) for storing data
